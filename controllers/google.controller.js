@@ -1,5 +1,5 @@
 const {OAuth2Client} = require('google-auth-library');
-const pool = require('../db')
+const pool = require("../database/db");
 const googleClient = new  OAuth2Client("514019982654-o1fk4gkbgepaikgsjdfg05sk9rauf1dh.apps.googleusercontent.com");
 const dotenv = require('dotenv');
 dotenv.config();

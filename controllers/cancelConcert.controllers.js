@@ -1,8 +1,12 @@
-const pool = require("../db");
+const pool = require("../database/db");
+const getDb = require("../utils/getDb")
+
 
 const cancelConcert = async (req, res, next) => {
-
-    const client = await pool.connect();
+     const user_id = req.userId;
+    
+       const db  =  getDb(user_id);
+    const client = await db.connect();
 
     
 

@@ -1,11 +1,12 @@
-const pool = require("../db");
+const pool = require("../database/db");
 const userEvents  = require('../events/userEvents')
+const getDb = require("../utils/getDb")
+
 
 const cancelBooking = async(req,res)=>{
 
-
-    
-    const client = await pool.connect();
+     const db  =  getDb(user_id);
+    const client = await db.connect();
 
     try{
          await client.query("BEGIN");

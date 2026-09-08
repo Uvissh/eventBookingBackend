@@ -1,10 +1,13 @@
 const mockPayment = require("../utils/mockPayment");
-const pool = require('../db');
+const pool = require("../database/db");
+const getDb = require("../utils/getDb")
+
 
 const concertBooking =async(req,res,next)=>{
     const  {seat_id} = req.body;
     const user_id = req.userId;
-  const client =  await pool.connect();
+    const db  =  getDb(user_id);
+  const client =  await db.connect();
   try{
    await client.query("BEGIN");
    //find the seat which aviaable
