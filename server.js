@@ -23,15 +23,17 @@ const app =  express();
 const port =  process.env.LOCALHOST||3000
 
 
-
-app.use(express.json());
-app.use(cookieParser());
 app.use(cors({
     origin: "https://eventbookingfrontend1.onrender.com",
+    credentials: true,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true
+    allowedHeaders: ["Content-Type", "Authorization"]
 }));
+
+app.options("*", cors());
+app.use(express.json());
+app.use(cookieParser());
+
 app.use(userRouter);
 app.use(seatrouter);
 app.use(refreshRouter)
