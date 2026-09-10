@@ -8,6 +8,9 @@ const {Pool} = require('pg');
    database:process.env.DB2_DATABASE,
    password:process.env.DB2_PASSWORD,
    port:process.env.DB2_PORT,
+    ssl: {
+    rejectUnauthorized: false,
+  },
 })
 
 

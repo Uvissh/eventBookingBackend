@@ -1,4 +1,4 @@
- const errorMiddleware = (err,res,req,next)=>{
+ const errorMiddleware = (err,req,res,next)=>{
 
     console.log(err.stack);
     console.log(err.message);
