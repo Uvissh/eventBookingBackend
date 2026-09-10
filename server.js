@@ -16,9 +16,11 @@ const errorMiddleware = require('./middleware/error.middleware');
 const concertRouter = require('./Routes/concertSeats.Routes');
 const concertBookingRouter = require('./Routes/concertBooking.Routes');
 const cancelConcertRouter = require('./Routes/cancelConcertBooking.Routes');
+const dotenv = require('dotenv');
+dotenv.config();
 
 const app =  express();
-const port =  3000;
+const port =  process.env.LOCALHOST||3000
 
 
 
@@ -66,5 +68,5 @@ userEvents.on("CancelBooking",async(user,booking,seat)=>{
 })
 
 app.listen(port ,()=>{
-    console.log(`Running in the port ${3000}`);
+    console.log(`Running in the port ${port}`);
 })
